@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+    <header class="app-header">
+        <h1 class="app-title">Sudoku</h1>
+        <button
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Toggle dark mode"
+            title="Toggle dark mode"
+        >🌙</button>
+    </header>
+
+    <main class="app-main">
+        <section class="controls" aria-label="Game controls">
+            <div class="control-group">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty" aria-label="Puzzle difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <button id="new-game" class="btn btn-primary">New Game</button>
+        </section>
+
+        <section class="board-wrapper" aria-label="Sudoku board">
+            <table id="board" class="sudoku-board" role="grid"></table>
+        </section>
+
+        <section class="actions" aria-label="Actions">
+            <button id="check" class="btn">Check</button>
+            <button id="hint" class="btn btn-accent">Hint</button>
+        </section>
+
+        <p class="timer" aria-live="polite">Time: <span id="timer">0:00</span></p>
+
+        <section class="scoreboard" aria-label="Top 10 fastest times">
+            <h2>Top 10 Fastest Times</h2>
+            <table class="scores-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Time</th>
+                        <th>Level</th>
+                        <th>Hints</th>
+                    </tr>
+                </thead>
+                <tbody id="scores-body"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Win modal -->
+    <div id="win-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="win-title">
+        <div class="modal-content">
+            <h2 id="win-title">🎉 You solved it!</h2>
+            <p id="win-summary"></p>
+            <label for="player-name">Your name:</label>
+            <input id="player-name" type="text" maxlength="20" placeholder="Anonymous" />
+            <div class="modal-actions">
+                <button id="save-score" class="btn btn-primary">Save Score</button>
+                <button id="close-modal" class="btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

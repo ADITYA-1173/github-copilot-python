@@ -1,0 +1,24 @@
+{
+  "description": "Reusable Copilot prompt templates used throughout the Sudoku refactor.",
+  "prompts": {
+    "setup_testing": "Set up a pytest framework for this Flask app. Create a tests/ folder with __init__.py, a test module for the Sudoku logic (sudoku.py) covering: is_safe, solve on a known puzzle, generate_full_board validity, and difficulty enums. Also create tests for the Flask routes using the test_client. Show me the command to run the tests.",
+
+    "unique_solution": "Refactor generate_puzzle so it guarantees the returned board has exactly ONE valid solution. Use a count_solutions helper with an early-exit limit of 2, and revert any cell removal that would create ambiguity. Add a most-constrained-variable heuristic to keep it fast for hard puzzles.",
+
+    "top10_localstorage": "Add a Top 10 fastest-times leaderboard that persists across page reloads using localStorage. On puzzle completion, prompt the user for a name, then insert {name, seconds, difficulty, hints} into the list, sort ascending by seconds, and trim to 10. Render as an HTML table.",
+
+    "alternating_3x3": "Style the Sudoku board so alternate 3×3 sub-grids have different background colors (checkerboard pattern of boxes, not cells). Use CSS variables so it adapts to light/dark theme. Also draw thicker borders between 3x3 boxes.",
+
+    "dark_mode": "Add a light/dark mode toggle button in the header. Store the preference in localStorage under 'sudoku_theme'. Use CSS custom properties on [data-theme='dark'] so all colors switch cleanly. Keep contrast WCAG AA compliant.",
+
+    "hint_check": "Add a Hint button that fills one random empty cell with the correct value from the solution and locks it. Add a Check button that highlights any cell whose value differs from the solution. Track the number of hints used per game.",
+
+    "timer": "Add a MM:SS timer that starts when a new game is generated, updates every second, and stops when the puzzle is solved correctly. Display the time in the completion modal.",
+
+    "live_validation": "Add live validation: as the user types a digit, highlight in red any cells that violate row/column/box uniqueness. Clear the highlight when the conflict is resolved.",
+
+    "responsive_a11y": "Make the layout responsive: shrink cells to 36px on screens under 500px. Add aria-labels to all buttons and each input. Enable arrow-key navigation between cells.",
+
+    "explain_snippet": "Explain this code snippet line-by-line to me as if I'm a junior developer. Point out any anti-patterns or subtle bugs."
+  }
+}
