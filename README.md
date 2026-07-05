@@ -33,7 +33,7 @@ persistent Top 10 leaderboard.
 ### Setup
 ```bash
 # 1. clone
-git clone https://github.com/<your-username>/github-copilot-python.git
+git clone https://github.com/ADITYA-1173/github-copilot-python.git
 cd github-copilot-python
 
 # 2. create virtual env (recommended)
